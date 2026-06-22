@@ -7,6 +7,7 @@ import 'screens/signup_screen.dart';
 import 'screens/forgot_password_screen.dart';
 import 'screens/splash_screen.dart';
 import 'screens/welcome_screen.dart';
+import 'screens/home_screen.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         LoginScreen.routeName: (context) => const LoginScreen(),
         SignupScreen.routeName: (context) => const SignupScreen(),
         ForgotPasswordScreen.routeName: (context) => const ForgotPasswordScreen(),
+        HomeScreen.routeName: (context) => const HomeScreen(),
       },
     );
   }

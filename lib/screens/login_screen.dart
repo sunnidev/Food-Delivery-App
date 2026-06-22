@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import '../colors/app_colors.dart';
 import '../config/strings.dart';
-import '../screens/onboarding_screen.dart';
 import '../screens/signup_screen.dart';
 import '../screens/forgot_password_screen.dart';
+import '../screens/home_screen.dart';
 import '../widgets/app_input_field.dart';
 import '../widgets/brand_button.dart';
 
@@ -33,7 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Login successful')),
       );
-      Navigator.pushReplacementNamed(context, OnboardingScreen.routeName);
+      Navigator.pushReplacementNamed(context, HomeScreen.routeName);
     }
   }
 

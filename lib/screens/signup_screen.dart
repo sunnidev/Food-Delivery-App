@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../colors/app_colors.dart';
 import '../config/strings.dart';
-import '../screens/onboarding_screen.dart';
+import '../screens/home_screen.dart';
 import '../widgets/app_input_field.dart';
 import '../widgets/brand_button.dart';
 import 'login_screen.dart';
@@ -38,7 +38,7 @@ class _SignupScreenState extends State<SignupScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Account created successfully')),
       );
-      Navigator.pushReplacementNamed(context, OnboardingScreen.routeName);
+      Navigator.pushReplacementNamed(context, HomeScreen.routeName);
     }
   }
 
