@@ -4,6 +4,7 @@ import '../colors/app_colors.dart';
 import '../widgets/brand_button.dart';
 import '../data/onboarding_data.dart';
 import '../config/strings.dart';
+import 'login_screen.dart';
 
 class OnboardingScreen extends StatefulWidget {
   static const String routeName = '/onboarding';
@@ -29,7 +30,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   void _goNext() {
     if (_currentPage == _items.length - 1) {
-      Navigator.pushReplacementNamed(context, '/welcome');
+      Navigator.pushReplacementNamed(context, LoginScreen.routeName);
       return;
     }
     _pageController.nextPage(
@@ -39,7 +40,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 
   void _skip() {
-    Navigator.pushReplacementNamed(context, '/welcome');
+    Navigator.pushReplacementNamed(context, LoginScreen.routeName);
   }
 
   @override
@@ -191,16 +192,3 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 }
 
-class _OnboardingItem {
-  final String imageAsset;
-  final String title;
-  final String subtitle;
-  final IconData icon;
-
-  const _OnboardingItem({
-    required this.imageAsset,
-    required this.title,
-    required this.subtitle,
-    required this.icon,
-  });
-}

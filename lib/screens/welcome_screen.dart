@@ -43,14 +43,14 @@ class WelcomeScreen extends StatelessWidget {
       footer: Column(
         children: [
           BrandButton(
-            label: 'Log In',
+            label: Strings.logIn,
             onPressed: () {
               Navigator.pushNamed(context, OnboardingScreen.routeName);
             },
           ),
           const SizedBox(height: 14),
           BrandButton(
-            label: 'Sign Up',
+            label: Strings.signUp,
             onPressed: () {
               Navigator.pushNamed(context, OnboardingScreen.routeName);
             },
