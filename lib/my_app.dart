@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'colors/app_colors.dart';
+import 'screens/login_screen.dart';
 import 'screens/onboarding_screen.dart';
+import 'screens/signup_screen.dart';
+import 'screens/forgot_password_screen.dart';
 import 'screens/splash_screen.dart';
 import 'screens/welcome_screen.dart';
 
@@ -22,6 +25,9 @@ class MyApp extends StatelessWidget {
         SplashScreen.routeName: (context) => const SplashScreen(),
         WelcomeScreen.routeName: (context) => const WelcomeScreen(),
         OnboardingScreen.routeName: (context) => const OnboardingScreen(),
+        LoginScreen.routeName: (context) => const LoginScreen(),
+        SignupScreen.routeName: (context) => const SignupScreen(),
+        ForgotPasswordScreen.routeName: (context) => const ForgotPasswordScreen(),
       },
     );
   }
