@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../colors/app_colors.dart';
+import '../widgets/profile_drawer.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = '/home';
@@ -12,6 +13,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedTabIndex = 0;
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   final List<Map<String, String>> categories = [
     {'name': 'Snacks', 'icon': 'assets/images/Snacks.png'},
@@ -36,7 +38,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: AppColors.white,
+      endDrawer: const ProfileDrawer(),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -97,14 +101,19 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: Icon(Icons.notifications_outlined, color: AppColors.primary, size: 18),
                         ),
                         const SizedBox(width: 10),
-                        Container(
-                          width: 40,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            color: AppColors.white,
-                            borderRadius: BorderRadius.circular(10),
+                        GestureDetector(
+                          onTap: () {
+                            _scaffoldKey.currentState?.openEndDrawer();
+                          },
+                          child: Container(
+                            width: 40,
+                            height: 40,
+                            decoration: BoxDecoration(
+                              color: AppColors.white,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Icon(Icons.person_outline, color: AppColors.primary, size: 18),
                           ),
-                          child: Icon(Icons.person_outline, color: AppColors.primary, size: 18),
                         ),
                       ],
                     ),
