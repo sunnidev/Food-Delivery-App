@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../colors/app_colors.dart';
 import '../screens/my_profile_screen.dart';
 import '../screens/my_orders_screen.dart';
+import '../screens/delivery_address_screen.dart';
 
 class ProfileDrawer extends StatelessWidget {
   const ProfileDrawer({super.key});
@@ -114,7 +115,9 @@ class ProfileDrawer extends StatelessWidget {
                     _DrawerMenuItem(
                       icon: Icons.location_on_outlined,
                       label: 'Delivery Address',
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(context, DeliveryAddressScreen.routeName);
+                      },
                     ),
                     _DrawerMenuItem(
                       icon: Icons.payment_outlined,
