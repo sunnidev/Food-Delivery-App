@@ -12,6 +12,7 @@ import 'screens/my_orders_screen.dart';
 import 'screens/cancel_order_screen.dart';
 import 'screens/order_cancelled_screen.dart';
 import 'screens/leave_review_screen.dart';
+import 'screens/my_profile_screen.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
         CancelOrderScreen.routeName: (context) => const CancelOrderScreen(),
         OrderCancelledScreen.routeName: (context) => const OrderCancelledScreen(),
         LeaveReviewScreen.routeName: (context) => const LeaveReviewScreen(),
+        MyProfileScreen.routeName: (context) => const MyProfileScreen(),
       },
     );
   }
