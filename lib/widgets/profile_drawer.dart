@@ -3,6 +3,7 @@ import '../colors/app_colors.dart';
 import '../screens/my_profile_screen.dart';
 import '../screens/my_orders_screen.dart';
 import '../screens/delivery_address_screen.dart';
+import '../screens/payment_methods_screen.dart';
 
 class ProfileDrawer extends StatelessWidget {
   const ProfileDrawer({super.key});
@@ -122,7 +123,9 @@ class ProfileDrawer extends StatelessWidget {
                     _DrawerMenuItem(
                       icon: Icons.payment_outlined,
                       label: 'Payment Methods',
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(context, PaymentMethodsScreen.routeName);
+                      },
                     ),
                     _DrawerMenuItem(
                       icon: Icons.call_outlined,

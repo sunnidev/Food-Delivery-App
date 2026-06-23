@@ -15,6 +15,8 @@ import 'screens/leave_review_screen.dart';
 import 'screens/my_profile_screen.dart';
 import 'screens/delivery_address_screen.dart';
 import 'screens/add_address_screen.dart';
+import 'screens/payment_methods_screen.dart';
+import 'screens/add_card_screen.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -44,6 +46,8 @@ class MyApp extends StatelessWidget {
         MyProfileScreen.routeName: (context) => const MyProfileScreen(),
         DeliveryAddressScreen.routeName: (context) => const DeliveryAddressScreen(),
         AddAddressScreen.routeName: (context) => const AddAddressScreen(),
+        PaymentMethodsScreen.routeName: (context) => const PaymentMethodsScreen(),
+        AddCardScreen.routeName: (context) => const AddCardScreen(),
       },
     );
   }
