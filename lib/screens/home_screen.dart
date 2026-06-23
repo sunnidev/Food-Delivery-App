@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../colors/app_colors.dart';
 import '../widgets/profile_drawer.dart';
+import '../widgets/custom_bottom_nav_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = '/home';
@@ -226,54 +227,13 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       // Bottom Navigation Bar
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          color: AppColors.primary,
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(20),
-            topRight: Radius.circular(20),
-          ),
-        ),
-        child: BottomNavigationBar(
-          currentIndex: _selectedTabIndex,
-          onTap: (index) {
-            setState(() {
-              _selectedTabIndex = index;
-            });
-          },
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          type: BottomNavigationBarType.fixed,
-          selectedItemColor: AppColors.white,
-          unselectedItemColor: AppColors.white.withValues(alpha: 0.5),
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined, size: 24),
-              activeIcon: Icon(Icons.home, size: 24),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.restaurant_outlined, size: 24),
-              activeIcon: Icon(Icons.restaurant, size: 24),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.favorite_outline, size: 24),
-              activeIcon: Icon(Icons.favorite, size: 24),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.description_outlined, size: 24),
-              activeIcon: Icon(Icons.description, size: 24),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.headphones_outlined, size: 24),
-              activeIcon: Icon(Icons.headphones, size: 24),
-              label: '',
-            ),
-          ],
-        ),
+      bottomNavigationBar: CustomBottomNavBar(
+        currentIndex: _selectedTabIndex,
+        onTap: (index) {
+          setState(() {
+            _selectedTabIndex = index;
+          });
+        },
       ),
     );
   }

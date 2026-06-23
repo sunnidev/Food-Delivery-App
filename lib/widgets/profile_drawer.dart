@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../colors/app_colors.dart';
+import '../screens/my_orders_screen.dart';
 
 class ProfileDrawer extends StatelessWidget {
   const ProfileDrawer({super.key});
@@ -98,7 +99,9 @@ class ProfileDrawer extends StatelessWidget {
                     _DrawerMenuItem(
                       icon: Icons.shopping_bag_outlined,
                       label: 'My Orders',
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(context, MyOrdersScreen.routeName);
+                      },
                     ),
                     _DrawerMenuItem(
                       icon: Icons.person_outline,

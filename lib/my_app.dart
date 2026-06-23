@@ -8,6 +8,10 @@ import 'screens/forgot_password_screen.dart';
 import 'screens/splash_screen.dart';
 import 'screens/welcome_screen.dart';
 import 'screens/home_screen.dart';
+import 'screens/my_orders_screen.dart';
+import 'screens/cancel_order_screen.dart';
+import 'screens/order_cancelled_screen.dart';
+import 'screens/leave_review_screen.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -30,6 +34,10 @@ class MyApp extends StatelessWidget {
         SignupScreen.routeName: (context) => const SignupScreen(),
         ForgotPasswordScreen.routeName: (context) => const ForgotPasswordScreen(),
         HomeScreen.routeName: (context) => const HomeScreen(),
+        MyOrdersScreen.routeName: (context) => const MyOrdersScreen(),
+        CancelOrderScreen.routeName: (context) => const CancelOrderScreen(),
+        OrderCancelledScreen.routeName: (context) => const OrderCancelledScreen(),
+        LeaveReviewScreen.routeName: (context) => const LeaveReviewScreen(),
       },
     );
   }
