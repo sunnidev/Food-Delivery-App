@@ -22,7 +22,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
   late List<Map<String, dynamic>> activeOrders;
   late List<Map<String, dynamic>> completedOrders;
   late List<Map<String, dynamic>> cancelledOrders;
-  
+
   // Track which orders have been reviewed
   final Set<String> reviewedOrders = {};
 
@@ -149,44 +149,49 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                           vertical: 20,
                         ),
                         child: Row(
-                          children: tabs.map((tab) {
-                            final isSelected = _selectedTab == tab;
-                            return Expanded(
-                              child: GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    _selectedTab = tab;
-                                  });
-                                },
-                                child: Container(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 12,
-                                    vertical: 10,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: isSelected
-                                        ? AppColors.primary
-                                        : AppColors.primary.withValues(alpha: 0.15),
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      tab,
-                                      style: TextStyle(
-                                        fontSize: 13,
-                                        fontWeight: FontWeight.w600,
+                          children: tabs
+                              .map((tab) {
+                                final isSelected = _selectedTab == tab;
+                                return Expanded(
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        _selectedTab = tab;
+                                      });
+                                    },
+                                    child: Container(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 12,
+                                        vertical: 10,
+                                      ),
+                                      decoration: BoxDecoration(
                                         color: isSelected
-                                            ? AppColors.white
-                                            : AppColors.primary,
+                                            ? AppColors.primary
+                                            : AppColors.primary.withValues(
+                                                alpha: 0.15,
+                                              ),
+                                        borderRadius: BorderRadius.circular(20),
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          tab,
+                                          style: TextStyle(
+                                            fontSize: 13,
+                                            fontWeight: FontWeight.w600,
+                                            color: isSelected
+                                                ? AppColors.white
+                                                : AppColors.primary,
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),
-                                ),
-                              ),
-                            );
-                          }).toList()
-                              .expand((widget) =>
-                                  [widget, const SizedBox(width: 8)])
+                                );
+                              })
+                              .toList()
+                              .expand(
+                                (widget) => [widget, const SizedBox(width: 8)],
+                              )
                               .toList()
                               .sublist(0, tabs.length * 2 - 1),
                         ),
@@ -205,12 +210,16 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                                   height: 120,
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
-                                    color: AppColors.primary.withValues(alpha: 0.1),
+                                    color: AppColors.primary.withValues(
+                                      alpha: 0.1,
+                                    ),
                                   ),
                                   child: Icon(
                                     Icons.receipt_long,
                                     size: 60,
-                                    color: AppColors.primary.withValues(alpha: 0.4),
+                                    color: AppColors.primary.withValues(
+                                      alpha: 0.4,
+                                    ),
                                   ),
                                 ),
                                 const SizedBox(height: 24),
@@ -274,10 +283,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(
-          color: Colors.grey.withValues(alpha: 0.2),
-          width: 1,
-        ),
+        border: Border.all(color: Colors.grey.withValues(alpha: 0.2), width: 1),
       ),
       child: Padding(
         padding: const EdgeInsets.all(12),
@@ -465,7 +471,9 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                                 );
                               },
                               child: Container(
-                                padding: const EdgeInsets.symmetric(vertical: 8),
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 8,
+                                ),
                                 decoration: BoxDecoration(
                                   color: AppColors.primary,
                                   borderRadius: BorderRadius.circular(8),

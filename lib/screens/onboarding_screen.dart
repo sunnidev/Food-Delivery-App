@@ -104,7 +104,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   child: Container(
                     decoration: BoxDecoration(
                       color: AppColors.white,
-                      borderRadius: const BorderRadius.vertical(top: Radius.circular(30)),
+                      borderRadius: const BorderRadius.vertical(
+                        top: Radius.circular(30),
+                      ),
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black.withOpacity(0.08),
@@ -112,7 +114,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         ),
                       ],
                     ),
-                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 24,
+                      vertical: 20,
+                    ),
                     child: Column(
                       children: [
                         Container(
@@ -155,26 +160,27 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         const SizedBox(height: 8),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: List.generate(
-                            _items.length,
-                            (dotIndex) {
-                              final isActive = dotIndex == _currentPage;
-                              return AnimatedContainer(
-                                duration: const Duration(milliseconds: 250),
-                                margin: const EdgeInsets.symmetric(horizontal: 5),
-                                width: isActive ? 28 : 10,
-                                height: 8,
-                                decoration: BoxDecoration(
-                                  color: isActive ? AppColors.primary : AppColors.primary.withOpacity(0.25),
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                              );
-                            },
-                          ),
+                          children: List.generate(_items.length, (dotIndex) {
+                            final isActive = dotIndex == _currentPage;
+                            return AnimatedContainer(
+                              duration: const Duration(milliseconds: 250),
+                              margin: const EdgeInsets.symmetric(horizontal: 5),
+                              width: isActive ? 28 : 10,
+                              height: 8,
+                              decoration: BoxDecoration(
+                                color: isActive
+                                    ? AppColors.primary
+                                    : AppColors.primary.withOpacity(0.25),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            );
+                          }),
                         ),
                         const SizedBox(height: 14),
                         BrandButton(
-                          label: _currentPage == _items.length - 1 ? Strings.getStarted : Strings.next,
+                          label: _currentPage == _items.length - 1
+                              ? Strings.getStarted
+                              : Strings.next,
                           onPressed: _goNext,
                           backgroundColor: AppColors.primary,
                           foregroundColor: AppColors.white,
@@ -191,4 +197,3 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     );
   }
 }
-

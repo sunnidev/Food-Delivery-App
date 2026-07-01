@@ -30,9 +30,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void _handleLogin() {
     if (_formKey.currentState!.validate()) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Login successful')),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text('Login successful')));
       Navigator.pushReplacementNamed(context, HomeScreen.routeName);
     }
   }
@@ -87,113 +87,69 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: SingleChildScrollView(
                   physics: const NeverScrollableScrollPhysics(),
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 24,
+                    ),
                     child: Form(
-                    key: _formKey,
-                    child: Column(
-                      children: [
-                        Text(
-                          'Welcome Back!',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: AppColors.primary,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                        const SizedBox(height: 12),
-                        Text(
-                          'Sign in to your account to continue ordering your favorite meals. We\'re excited to serve you again!',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.black.withOpacity(0.6),
-                            fontSize: 13,
-                            height: 1.5,
-                          ),
-                        ),
-                        const SizedBox(height: 28),
-                        AppInputField(
-                          label: Strings.email,
-                          hintText: 'example@example.com',
-                          controller: _emailController,
-                          keyboardType: TextInputType.emailAddress,
-                          validator: (value) {
-                            if (value?.isEmpty ?? true) {
-                              return 'Email is required';
-                            }
-                            return null;
-                          },
-                        ),
-                        const SizedBox(height: 20),
-                        AppInputField(
-                          label: Strings.password,
-                          hintText: '••••••••••',
-                          controller: _passwordController,
-                          isPassword: true,
-                          validator: (value) {
-                            if (value?.isEmpty ?? true) {
-                              return 'Password is required';
-                            }
-                            return null;
-                          },
-                        ),
-                        const SizedBox(height: 12),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: GestureDetector(
-                            onTap: () => Navigator.pushNamed(context, ForgotPasswordScreen.routeName),
-                            child: Text(
-                              Strings.forgotPassword,
-                              style: TextStyle(
-                                color: AppColors.primary,
-                                fontSize: 13,
-                                fontWeight: FontWeight.w600,
-                              ),
+                      key: _formKey,
+                      child: Column(
+                        children: [
+                          Text(
+                            'Welcome Back!',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: AppColors.primary,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w700,
                             ),
                           ),
-                        ),
-                        const SizedBox(height: 28),
-                        BrandButton(
-                          label: Strings.logIn,
-                          onPressed: _handleLogin,
-                          backgroundColor: AppColors.primary,
-                          foregroundColor: AppColors.white,
-                        ),
-                        const SizedBox(height: 20),
-                        Text(
-                          Strings.orSignUpWith,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.black.withOpacity(0.6),
-                            fontSize: 13,
-                          ),
-                        ),
-                        const SizedBox(height: 12),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            _socialIconButton(Icons.language),
-                            const SizedBox(width: 16),
-                            _socialIconButton(Icons.facebook),
-                            const SizedBox(width: 16),
-                            _socialIconButton(Icons.email),
-                          ],
-                        ),
-                        const SizedBox(height: 20),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              Strings.dontHaveAccount,
-                              style: TextStyle(
-                                color: Colors.black.withOpacity(0.6),
-                                fontSize: 13,
-                              ),
+                          const SizedBox(height: 12),
+                          Text(
+                            'Sign in to your account to continue ordering your favorite meals. We\'re excited to serve you again!',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.black.withOpacity(0.6),
+                              fontSize: 13,
+                              height: 1.5,
                             ),
-                            GestureDetector(
-                              onTap: () => Navigator.pushNamed(context, SignupScreen.routeName),
+                          ),
+                          const SizedBox(height: 28),
+                          AppInputField(
+                            label: Strings.email,
+                            hintText: 'example@example.com',
+                            controller: _emailController,
+                            keyboardType: TextInputType.emailAddress,
+                            validator: (value) {
+                              if (value?.isEmpty ?? true) {
+                                return 'Email is required';
+                              }
+                              return null;
+                            },
+                          ),
+                          const SizedBox(height: 20),
+                          AppInputField(
+                            label: Strings.password,
+                            hintText: '••••••••••',
+                            controller: _passwordController,
+                            isPassword: true,
+                            validator: (value) {
+                              if (value?.isEmpty ?? true) {
+                                return 'Password is required';
+                              }
+                              return null;
+                            },
+                          ),
+                          const SizedBox(height: 12),
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: GestureDetector(
+                              onTap: () => Navigator.pushNamed(
+                                context,
+                                ForgotPasswordScreen.routeName,
+                              ),
                               child: Text(
-                                Strings.signUp,
+                                Strings.forgotPassword,
                                 style: TextStyle(
                                   color: AppColors.primary,
                                   fontSize: 13,
@@ -201,10 +157,63 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ),
                               ),
                             ),
-                          ],
-                        ),
-                      ],
-                    ),
+                          ),
+                          const SizedBox(height: 28),
+                          BrandButton(
+                            label: Strings.logIn,
+                            onPressed: _handleLogin,
+                            backgroundColor: AppColors.primary,
+                            foregroundColor: AppColors.white,
+                          ),
+                          const SizedBox(height: 20),
+                          Text(
+                            Strings.orSignUpWith,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.black.withOpacity(0.6),
+                              fontSize: 13,
+                            ),
+                          ),
+                          const SizedBox(height: 12),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              _socialIconButton(Icons.language),
+                              const SizedBox(width: 16),
+                              _socialIconButton(Icons.facebook),
+                              const SizedBox(width: 16),
+                              _socialIconButton(Icons.email),
+                            ],
+                          ),
+                          const SizedBox(height: 20),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                Strings.dontHaveAccount,
+                                style: TextStyle(
+                                  color: Colors.black.withOpacity(0.6),
+                                  fontSize: 13,
+                                ),
+                              ),
+                              GestureDetector(
+                                onTap: () => Navigator.pushNamed(
+                                  context,
+                                  SignupScreen.routeName,
+                                ),
+                                child: Text(
+                                  Strings.signUp,
+                                  style: TextStyle(
+                                    color: AppColors.primary,
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -224,11 +233,7 @@ class _LoginScreenState extends State<LoginScreen> {
         color: AppColors.secondary.withOpacity(0.1),
         borderRadius: BorderRadius.circular(12),
       ),
-      child: Icon(
-        icon,
-        color: AppColors.primary,
-        size: 20,
-      ),
+      child: Icon(icon, color: AppColors.primary, size: 20),
     );
   }
 }

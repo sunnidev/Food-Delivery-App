@@ -23,7 +23,8 @@ class _LeaveReviewScreenState extends State<LeaveReviewScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final arguments = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
+    final arguments =
+        ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
     final order = arguments?['order'] as Map<String, dynamic>?;
 
     return Scaffold(
@@ -140,9 +141,13 @@ class _LeaveReviewScreenState extends State<LeaveReviewScreen> {
                                   });
                                 },
                                 child: Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 8,
+                                  ),
                                   child: Icon(
-                                    index < _selectedRating ? Icons.star : Icons.star_outline,
+                                    index < _selectedRating
+                                        ? Icons.star
+                                        : Icons.star_outline,
                                     size: 40,
                                     color: AppColors.primary,
                                   ),
@@ -171,7 +176,9 @@ class _LeaveReviewScreenState extends State<LeaveReviewScreen> {
                           // Review Text Field
                           Container(
                             decoration: BoxDecoration(
-                              color: AppColors.backgroundSplash.withValues(alpha: 0.15),
+                              color: AppColors.backgroundSplash.withValues(
+                                alpha: 0.15,
+                              ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: TextField(
@@ -204,9 +211,13 @@ class _LeaveReviewScreenState extends State<LeaveReviewScreen> {
                                     Navigator.pop(context);
                                   },
                                   child: Container(
-                                    padding: const EdgeInsets.symmetric(vertical: 12),
+                                    padding: const EdgeInsets.symmetric(
+                                      vertical: 12,
+                                    ),
                                     decoration: BoxDecoration(
-                                      color: AppColors.primary.withValues(alpha: 0.15),
+                                      color: AppColors.primary.withValues(
+                                        alpha: 0.15,
+                                      ),
                                       borderRadius: BorderRadius.circular(20),
                                     ),
                                     child: Center(
@@ -227,7 +238,9 @@ class _LeaveReviewScreenState extends State<LeaveReviewScreen> {
                                 child: GestureDetector(
                                   onTap: _handleSubmitReview,
                                   child: Container(
-                                    padding: const EdgeInsets.symmetric(vertical: 12),
+                                    padding: const EdgeInsets.symmetric(
+                                      vertical: 12,
+                                    ),
                                     decoration: BoxDecoration(
                                       color: AppColors.primary,
                                       borderRadius: BorderRadius.circular(20),
@@ -260,9 +273,7 @@ class _LeaveReviewScreenState extends State<LeaveReviewScreen> {
         ),
       ),
       // Bottom Navigation Bar
-      bottomNavigationBar: CustomBottomNavBar(
-        currentIndex: 0,
-      ),
+      bottomNavigationBar: CustomBottomNavBar(currentIndex: 0),
     );
   }
 
@@ -278,7 +289,8 @@ class _LeaveReviewScreenState extends State<LeaveReviewScreen> {
     }
 
     // Get arguments
-    final arguments = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
+    final arguments =
+        ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
     final onReviewSubmitted = arguments?['onReviewSubmitted'] as VoidCallback?;
 
     // Call the callback to remove the review button

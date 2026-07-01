@@ -18,7 +18,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
   late TextEditingController _dateOfBirthController;
   late TextEditingController _emailController;
   late TextEditingController _phoneController;
-  
+
   File? _selectedImage;
   final ImagePicker _imagePicker = ImagePicker();
 
@@ -213,7 +213,9 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
                               onPressed: _handleUpdateProfile,
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: AppColors.primary,
-                                padding: const EdgeInsets.symmetric(vertical: 14),
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 14,
+                                ),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(25),
                                 ),
@@ -241,9 +243,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
         ),
       ),
       // Bottom Navigation Bar
-      bottomNavigationBar: CustomBottomNavBar(
-        currentIndex: 0,
-      ),
+      bottomNavigationBar: CustomBottomNavBar(currentIndex: 0),
     );
   }
 
@@ -262,10 +262,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
             vertical: 12,
           ),
         ),
-        style: const TextStyle(
-          fontSize: 14,
-          color: Colors.black,
-        ),
+        style: const TextStyle(fontSize: 14, color: Colors.black),
       ),
     );
   }

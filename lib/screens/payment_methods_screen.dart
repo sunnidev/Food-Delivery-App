@@ -115,7 +115,9 @@ class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
                                     vertical: 12,
                                   ),
                                   decoration: BoxDecoration(
-                                    color: AppColors.primary.withValues(alpha: 0.15),
+                                    color: AppColors.primary.withValues(
+                                      alpha: 0.15,
+                                    ),
                                     borderRadius: BorderRadius.circular(20),
                                   ),
                                   child: Text(
@@ -148,7 +150,9 @@ class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
                                 vertical: 12,
                               ),
                               decoration: BoxDecoration(
-                                color: AppColors.primary.withValues(alpha: 0.15),
+                                color: AppColors.primary.withValues(
+                                  alpha: 0.15,
+                                ),
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               child: Center(
@@ -175,9 +179,7 @@ class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
         ),
       ),
       // Bottom Navigation Bar
-      bottomNavigationBar: CustomBottomNavBar(
-        currentIndex: 0,
-      ),
+      bottomNavigationBar: CustomBottomNavBar(currentIndex: 0),
     );
   }
 
@@ -188,18 +190,11 @@ class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(
-          color: Colors.grey.withValues(alpha: 0.2),
-          width: 1,
-        ),
+        border: Border.all(color: Colors.grey.withValues(alpha: 0.2), width: 1),
       ),
       child: Row(
         children: [
-          Icon(
-            Icons.credit_card_outlined,
-            size: 32,
-            color: AppColors.primary,
-          ),
+          Icon(Icons.credit_card_outlined, size: 32, color: AppColors.primary),
           const SizedBox(width: 16),
           Expanded(
             child: Column(
@@ -240,10 +235,7 @@ class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
   }
 
   Future<void> _navigateToAddCard() async {
-    await Navigator.pushNamed(
-      context,
-      AddCardScreen.routeName,
-    );
+    await Navigator.pushNamed(context, AddCardScreen.routeName);
 
     if (mounted) {
       setState(() {
@@ -265,10 +257,7 @@ class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
           ),
           TextButton(
             onPressed: () => Navigator.pop(context, true),
-            child: Text(
-              'Delete',
-              style: TextStyle(color: AppColors.primary),
-            ),
+            child: Text('Delete', style: TextStyle(color: AppColors.primary)),
           ),
         ],
       ),

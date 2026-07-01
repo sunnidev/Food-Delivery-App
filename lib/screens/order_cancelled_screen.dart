@@ -33,12 +33,14 @@ class _OrderCancelledScreenState extends State<OrderCancelledScreen>
     Future.delayed(const Duration(seconds: 3), () {
       if (mounted) {
         // Get the callback from arguments
-        final arguments = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
-        final onOrderCancelled = arguments?['onOrderCancelled'] as VoidCallback?;
-        
+        final arguments =
+            ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
+        final onOrderCancelled =
+            arguments?['onOrderCancelled'] as VoidCallback?;
+
         // Call the callback to move order to cancelled
         onOrderCancelled?.call();
-        
+
         // Pop twice to go back to MyOrdersScreen
         Navigator.pop(context);
         Navigator.pop(context);
@@ -91,10 +93,7 @@ class _OrderCancelledScreenState extends State<OrderCancelledScreen>
                       height: 120,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        border: Border.all(
-                          color: AppColors.primary,
-                          width: 4,
-                        ),
+                        border: Border.all(color: AppColors.primary, width: 4),
                       ),
                       child: Center(
                         child: Container(
