@@ -115,7 +115,9 @@ class _CancelOrderScreenState extends State<CancelOrderScreen> {
                           // Text Input
                           Container(
                             decoration: BoxDecoration(
-                              color: AppColors.backgroundSplash.withValues(alpha: 0.2),
+                              color: AppColors.backgroundSplash.withValues(
+                                alpha: 0.2,
+                              ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: TextField(
@@ -146,7 +148,9 @@ class _CancelOrderScreenState extends State<CancelOrderScreen> {
                               onPressed: _handleSubmit,
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: AppColors.primary,
-                                padding: const EdgeInsets.symmetric(vertical: 14),
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 14,
+                                ),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(25),
                                 ),
@@ -222,11 +226,7 @@ class _CancelOrderScreenState extends State<CancelOrderScreen> {
                   color: isSelected ? AppColors.primary : Colors.transparent,
                 ),
                 child: isSelected
-                    ? Icon(
-                        Icons.check,
-                        size: 14,
-                        color: AppColors.white,
-                      )
+                    ? Icon(Icons.check, size: 14, color: AppColors.white)
                     : null,
               ),
             ],
@@ -240,7 +240,9 @@ class _CancelOrderScreenState extends State<CancelOrderScreen> {
     if (_selectedReason == null && _otherReasonController.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: const Text('Please select a reason or provide other details'),
+          content: const Text(
+            'Please select a reason or provide other details',
+          ),
           backgroundColor: AppColors.primary,
         ),
       );
@@ -248,7 +250,8 @@ class _CancelOrderScreenState extends State<CancelOrderScreen> {
     }
 
     // Get arguments from route
-    final arguments = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
+    final arguments =
+        ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
     final onOrderCancelled = arguments?['onOrderCancelled'] as VoidCallback?;
 
     // Navigate to success screen with callback

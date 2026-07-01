@@ -115,7 +115,9 @@ class _DeliveryAddressScreenState extends State<DeliveryAddressScreen> {
                                     vertical: 12,
                                   ),
                                   decoration: BoxDecoration(
-                                    color: AppColors.primary.withValues(alpha: 0.15),
+                                    color: AppColors.primary.withValues(
+                                      alpha: 0.15,
+                                    ),
                                     borderRadius: BorderRadius.circular(20),
                                   ),
                                   child: Text(
@@ -148,7 +150,9 @@ class _DeliveryAddressScreenState extends State<DeliveryAddressScreen> {
                                 vertical: 12,
                               ),
                               decoration: BoxDecoration(
-                                color: AppColors.primary.withValues(alpha: 0.15),
+                                color: AppColors.primary.withValues(
+                                  alpha: 0.15,
+                                ),
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               child: Center(
@@ -175,9 +179,7 @@ class _DeliveryAddressScreenState extends State<DeliveryAddressScreen> {
         ),
       ),
       // Bottom Navigation Bar
-      bottomNavigationBar: CustomBottomNavBar(
-        currentIndex: 0,
-      ),
+      bottomNavigationBar: CustomBottomNavBar(currentIndex: 0),
     );
   }
 
@@ -188,18 +190,11 @@ class _DeliveryAddressScreenState extends State<DeliveryAddressScreen> {
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(
-          color: Colors.grey.withValues(alpha: 0.2),
-          width: 1,
-        ),
+        border: Border.all(color: Colors.grey.withValues(alpha: 0.2), width: 1),
       ),
       child: Row(
         children: [
-          Icon(
-            Icons.home_outlined,
-            size: 32,
-            color: AppColors.primary,
-          ),
+          Icon(Icons.home_outlined, size: 32, color: AppColors.primary),
           const SizedBox(width: 16),
           Expanded(
             child: Column(
@@ -242,10 +237,7 @@ class _DeliveryAddressScreenState extends State<DeliveryAddressScreen> {
   }
 
   Future<void> _navigateToAddAddress() async {
-    await Navigator.pushNamed(
-      context,
-      AddAddressScreen.routeName,
-    );
+    await Navigator.pushNamed(context, AddAddressScreen.routeName);
 
     // Always refresh regardless of result
     if (mounted) {
@@ -268,10 +260,7 @@ class _DeliveryAddressScreenState extends State<DeliveryAddressScreen> {
           ),
           TextButton(
             onPressed: () => Navigator.pop(context, true),
-            child: Text(
-              'Delete',
-              style: TextStyle(color: AppColors.primary),
-            ),
+            child: Text('Delete', style: TextStyle(color: AppColors.primary)),
           ),
         ],
       ),

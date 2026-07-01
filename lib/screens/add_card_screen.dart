@@ -188,7 +188,9 @@ class _AddCardScreenState extends State<AddCardScreen> {
                               onPressed: _handleSaveCard,
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: AppColors.primary,
-                                padding: const EdgeInsets.symmetric(vertical: 14),
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 14,
+                                ),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(25),
                                 ),
@@ -216,9 +218,7 @@ class _AddCardScreenState extends State<AddCardScreen> {
         ),
       ),
       // Bottom Navigation Bar
-      bottomNavigationBar: CustomBottomNavBar(
-        currentIndex: 0,
-      ),
+      bottomNavigationBar: CustomBottomNavBar(currentIndex: 0),
     );
   }
 
@@ -229,10 +229,7 @@ class _AddCardScreenState extends State<AddCardScreen> {
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [
-            AppColors.primary,
-            AppColors.primary.withValues(alpha: 0.7),
-          ],
+          colors: [AppColors.primary, AppColors.primary.withValues(alpha: 0.7)],
         ),
         borderRadius: BorderRadius.circular(16),
       ),
@@ -245,11 +242,7 @@ class _AddCardScreenState extends State<AddCardScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Icon(Icons.credit_card, color: AppColors.white, size: 32),
-              Container(
-                width: 40,
-                height: 24,
-                color: Colors.grey[300],
-              ),
+              Container(width: 40, height: 24, color: Colors.grey[300]),
             ],
           ),
           Column(
@@ -342,20 +335,14 @@ class _AddCardScreenState extends State<AddCardScreen> {
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: hint,
-          hintStyle: TextStyle(
-            color: Colors.grey[400],
-            fontSize: 14,
-          ),
+          hintStyle: TextStyle(color: Colors.grey[400], fontSize: 14),
           contentPadding: const EdgeInsets.symmetric(
             horizontal: 16,
             vertical: 12,
           ),
           counterText: '',
         ),
-        style: const TextStyle(
-          fontSize: 14,
-          color: Colors.black,
-        ),
+        style: const TextStyle(fontSize: 14, color: Colors.black),
       ),
     );
   }

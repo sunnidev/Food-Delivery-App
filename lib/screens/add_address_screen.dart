@@ -108,10 +108,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                             ),
                           ),
                           const SizedBox(height: 8),
-                          _buildTextField(
-                            _nameController,
-                            'Anna House',
-                          ),
+                          _buildTextField(_nameController, 'Anna House'),
 
                           const SizedBox(height: 20),
 
@@ -140,7 +137,9 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                               onPressed: _handleAddAddress,
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: AppColors.primary,
-                                padding: const EdgeInsets.symmetric(vertical: 14),
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 14,
+                                ),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(25),
                                 ),
@@ -168,9 +167,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
         ),
       ),
       // Bottom Navigation Bar
-      bottomNavigationBar: CustomBottomNavBar(
-        currentIndex: 0,
-      ),
+      bottomNavigationBar: CustomBottomNavBar(currentIndex: 0),
     );
   }
 
@@ -190,19 +187,13 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: hint,
-          hintStyle: TextStyle(
-            color: Colors.grey[400],
-            fontSize: 14,
-          ),
+          hintStyle: TextStyle(color: Colors.grey[400], fontSize: 14),
           contentPadding: const EdgeInsets.symmetric(
             horizontal: 16,
             vertical: 12,
           ),
         ),
-        style: const TextStyle(
-          fontSize: 14,
-          color: Colors.black,
-        ),
+        style: const TextStyle(fontSize: 14, color: Colors.black),
       ),
     );
   }
