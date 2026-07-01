@@ -28,9 +28,9 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   void _handleResetPassword() {
     if (_formKey.currentState!.validate()) {
       if (_passwordController.text != _confirmPasswordController.text) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Passwords do not match')),
-        );
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(const SnackBar(content: Text('Passwords do not match')));
         return;
       }
       ScaffoldMessenger.of(context).showSnackBar(
@@ -90,71 +90,74 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 child: SingleChildScrollView(
                   physics: const NeverScrollableScrollPhysics(),
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
-                    child: Form(
-                    key: _formKey,
-                    child: Column(
-                      children: [
-                        Text(
-                          'Create a Strong Password',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: AppColors.primary,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                        const SizedBox(height: 12),
-                        Text(
-                          'Please create a secure password for your account. Use a combination of uppercase, lowercase, numbers, and special characters to enhance security.',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.black.withOpacity(0.6),
-                            fontSize: 13,
-                            height: 1.5,
-                          ),
-                        ),
-                        const SizedBox(height: 28),
-                        AppInputField(
-                          label: Strings.password,
-                          hintText: '••••••••••',
-                          controller: _passwordController,
-                          isPassword: true,
-                          validator: (value) {
-                            if (value?.isEmpty ?? true) {
-                              return 'Password is required';
-                            }
-                            if ((value?.length ?? 0) < 6) {
-                              return 'Password must be at least 6 characters';
-                            }
-                            return null;
-                          },
-                        ),
-                        const SizedBox(height: 20),
-                        AppInputField(
-                          label: Strings.confirmPassword,
-                          hintText: '••••••••••',
-                          controller: _confirmPasswordController,
-                          isPassword: true,
-                          validator: (value) {
-                            if (value?.isEmpty ?? true) {
-                              return 'Confirm password is required';
-                            }
-                            if ((value?.length ?? 0) < 6) {
-                              return 'Password must be at least 6 characters';
-                            }
-                            return null;
-                          },
-                        ),
-                        const SizedBox(height: 28),
-                        BrandButton(
-                          label: 'Create New Password',
-                          onPressed: _handleResetPassword,
-                          backgroundColor: AppColors.primary,
-                          foregroundColor: AppColors.white,
-                        ),
-                      ],
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 24,
                     ),
+                    child: Form(
+                      key: _formKey,
+                      child: Column(
+                        children: [
+                          Text(
+                            'Create a Strong Password',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: AppColors.primary,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          const SizedBox(height: 12),
+                          Text(
+                            'Please create a secure password for your account. Use a combination of uppercase, lowercase, numbers, and special characters to enhance security.',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.black.withOpacity(0.6),
+                              fontSize: 13,
+                              height: 1.5,
+                            ),
+                          ),
+                          const SizedBox(height: 28),
+                          AppInputField(
+                            label: Strings.password,
+                            hintText: '••••••••••',
+                            controller: _passwordController,
+                            isPassword: true,
+                            validator: (value) {
+                              if (value?.isEmpty ?? true) {
+                                return 'Password is required';
+                              }
+                              if ((value?.length ?? 0) < 6) {
+                                return 'Password must be at least 6 characters';
+                              }
+                              return null;
+                            },
+                          ),
+                          const SizedBox(height: 20),
+                          AppInputField(
+                            label: Strings.confirmPassword,
+                            hintText: '••••••••••',
+                            controller: _confirmPasswordController,
+                            isPassword: true,
+                            validator: (value) {
+                              if (value?.isEmpty ?? true) {
+                                return 'Confirm password is required';
+                              }
+                              if ((value?.length ?? 0) < 6) {
+                                return 'Password must be at least 6 characters';
+                              }
+                              return null;
+                            },
+                          ),
+                          const SizedBox(height: 28),
+                          BrandButton(
+                            label: 'Create New Password',
+                            onPressed: _handleResetPassword,
+                            backgroundColor: AppColors.primary,
+                            foregroundColor: AppColors.white,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),

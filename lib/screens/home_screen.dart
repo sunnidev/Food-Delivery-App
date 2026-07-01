@@ -25,15 +25,45 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
 
   final List<Map<String, String>> bestSellers = [
-    {'name': 'Sushi', 'price': '\$103.0', 'image': 'assets/images/bestseller1.png', 'rating': '4.5'},
-    {'name': 'Noodles', 'price': '\$50.0', 'image': 'assets/images/bestseller2.png', 'rating': '4.8'},
-    {'name': 'Burger', 'price': '\$12.99', 'image': 'assets/images/bestseller3.png', 'rating': '4.6'},
-    {'name': 'Cake', 'price': '\$8.20', 'image': 'assets/images/bestseller4.png', 'rating': '4.7'},
+    {
+      'name': 'Sushi',
+      'price': '\$103.0',
+      'image': 'assets/images/bestseller1.png',
+      'rating': '4.5',
+    },
+    {
+      'name': 'Noodles',
+      'price': '\$50.0',
+      'image': 'assets/images/bestseller2.png',
+      'rating': '4.8',
+    },
+    {
+      'name': 'Burger',
+      'price': '\$12.99',
+      'image': 'assets/images/bestseller3.png',
+      'rating': '4.6',
+    },
+    {
+      'name': 'Cake',
+      'price': '\$8.20',
+      'image': 'assets/images/bestseller4.png',
+      'rating': '4.7',
+    },
   ];
 
   final List<Map<String, String>> recommended = [
-    {'name': 'Burger', 'price': '\$10.0', 'image': 'assets/images/burger.png', 'rating': '5.0'},
-    {'name': 'Roll', 'price': '\$25.0', 'image': 'assets/images/roll.png', 'rating': '5.0'},
+    {
+      'name': 'Burger',
+      'price': '\$10.0',
+      'image': 'assets/images/burger.png',
+      'rating': '5.0',
+    },
+    {
+      'name': 'Roll',
+      'price': '\$25.0',
+      'image': 'assets/images/roll.png',
+      'rating': '5.0',
+    },
   ];
 
   @override
@@ -49,7 +79,10 @@ class _HomeScreenState extends State<HomeScreen> {
               // Yellow Header Section
               Container(
                 color: AppColors.backgroundSplash,
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 16,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -67,7 +100,10 @@ class _HomeScreenState extends State<HomeScreen> {
                               decoration: InputDecoration(
                                 hintText: 'Search',
                                 border: InputBorder.none,
-                                contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                                contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 16,
+                                  vertical: 10,
+                                ),
                                 hintStyle: TextStyle(color: Colors.grey[400]),
                                 suffixIcon: Container(
                                   margin: const EdgeInsets.all(6),
@@ -75,7 +111,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                     color: AppColors.primary,
                                     borderRadius: BorderRadius.circular(20),
                                   ),
-                                  child: const Icon(Icons.tune, color: Colors.white, size: 16),
+                                  child: const Icon(
+                                    Icons.tune,
+                                    color: Colors.white,
+                                    size: 16,
+                                  ),
                                 ),
                               ),
                             ),
@@ -89,7 +129,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             color: AppColors.white,
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          child: Icon(Icons.shopping_cart_outlined, color: AppColors.primary, size: 18),
+                          child: Icon(
+                            Icons.shopping_cart_outlined,
+                            color: AppColors.primary,
+                            size: 18,
+                          ),
                         ),
                         const SizedBox(width: 10),
                         Container(
@@ -99,7 +143,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             color: AppColors.white,
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          child: Icon(Icons.notifications_outlined, color: AppColors.primary, size: 18),
+                          child: Icon(
+                            Icons.notifications_outlined,
+                            color: AppColors.primary,
+                            size: 18,
+                          ),
                         ),
                         const SizedBox(width: 10),
                         GestureDetector(
@@ -113,7 +161,11 @@ class _HomeScreenState extends State<HomeScreen> {
                               color: AppColors.white,
                               borderRadius: BorderRadius.circular(10),
                             ),
-                            child: Icon(Icons.person_outline, color: AppColors.primary, size: 18),
+                            child: Icon(
+                              Icons.person_outline,
+                              color: AppColors.primary,
+                              size: 18,
+                            ),
                           ),
                         ),
                       ],
@@ -152,74 +204,83 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   child: Column(
                     children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                      child: SizedBox(
-                        height: 100,
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: categories.length,
-                          itemBuilder: (context, index) {
-                            return Padding(
-                              padding: const EdgeInsets.only(right: 16),
-                              child: _categoryCard(categories[index]),
-                            );
-                          },
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 20,
+                          vertical: 20,
+                        ),
+                        child: SizedBox(
+                          height: 100,
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: categories.length,
+                            itemBuilder: (context, index) {
+                              return Padding(
+                                padding: const EdgeInsets.only(right: 16),
+                                child: _categoryCard(categories[index]),
+                              );
+                            },
+                          ),
                         ),
                       ),
-                    ),
-                    // Best Seller Section
-                    Container(
-                      color: AppColors.white,
-                      child: Column(
-                        children: [
-                          _sectionHeader('Best Seller', 'View All'),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 20),
-                            child: GridView.builder(
-                              shrinkWrap: true,
-                              physics: const NeverScrollableScrollPhysics(),
-                              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 4,
-                                crossAxisSpacing: 10,
-                                mainAxisSpacing: 10,
-                                childAspectRatio: 0.75,
+                      // Best Seller Section
+                      Container(
+                        color: AppColors.white,
+                        child: Column(
+                          children: [
+                            _sectionHeader('Best Seller', 'View All'),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 20,
                               ),
-                              itemCount: bestSellers.length,
-                              itemBuilder: (context, index) {
-                                return _productCardSmall(bestSellers[index]);
-                              },
-                            ),
-                          ),
-                          const SizedBox(height: 16),
-                          // Promotional Banner
-                          _promotionalBanner(),
-                          const SizedBox(height: 20),
-                          // Recommend Section
-                          _sectionHeader('Recommend', ''),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 20),
-                            child: GridView.builder(
-                              shrinkWrap: true,
-                              physics: const NeverScrollableScrollPhysics(),
-                              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2,
-                                crossAxisSpacing: 12,
-                                mainAxisSpacing: 12,
-                                childAspectRatio: 1,
+                              child: GridView.builder(
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                gridDelegate:
+                                    const SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 4,
+                                      crossAxisSpacing: 10,
+                                      mainAxisSpacing: 10,
+                                      childAspectRatio: 0.75,
+                                    ),
+                                itemCount: bestSellers.length,
+                                itemBuilder: (context, index) {
+                                  return _productCardSmall(bestSellers[index]);
+                                },
                               ),
-                              itemCount: recommended.length,
-                              itemBuilder: (context, index) {
-                                return _recommendCardGrid(recommended[index]);
-                              },
                             ),
-                          ),
-                          const SizedBox(height: 40),
-                        ],
+                            const SizedBox(height: 16),
+                            // Promotional Banner
+                            _promotionalBanner(),
+                            const SizedBox(height: 20),
+                            // Recommend Section
+                            _sectionHeader('Recommend', ''),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 20,
+                              ),
+                              child: GridView.builder(
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                gridDelegate:
+                                    const SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 2,
+                                      crossAxisSpacing: 12,
+                                      mainAxisSpacing: 12,
+                                      childAspectRatio: 1,
+                                    ),
+                                itemCount: recommended.length,
+                                itemBuilder: (context, index) {
+                                  return _recommendCardGrid(recommended[index]);
+                                },
+                              ),
+                            ),
+                            const SizedBox(height: 40),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
-                ),
+                    ],
+                  ),
                 ),
               ),
             ],
@@ -248,10 +309,7 @@ class _HomeScreenState extends State<HomeScreen> {
             color: AppColors.backgroundSplash.withValues(alpha: 0.3),
             borderRadius: BorderRadius.circular(20),
           ),
-          child: Image.asset(
-            category['icon']!,
-            fit: BoxFit.contain,
-          ),
+          child: Image.asset(category['icon']!, fit: BoxFit.contain),
         ),
         const SizedBox(height: 12),
         Text(
@@ -296,9 +354,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _productCardSmall(Map<String, String> product) {
     return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-      ),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(12)),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(12),
         child: Stack(
@@ -384,9 +440,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20),
       height: 150,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
-      ),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(16)),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(16),
         child: Stack(
@@ -442,9 +496,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _recommendCardGrid(Map<String, String> product) {
     return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-      ),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(12)),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(12),
         child: Stack(
